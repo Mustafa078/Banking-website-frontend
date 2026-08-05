@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/60e1b7dfff.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="ATM.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>K-BANKING</title>
+  </head>
+  <body>
+    <header class="main-header">
+      <nav>
+        <div class="logo-hgroup">
+          <i class="fa-solid fa-building-columns logo" aria-hidden="true"></i>
+          <div class="hgroup">
+            <h1 class="bank-name">K-Digitals Banks</h1>
+            <p class="sub-info">Your Trust, Our Priority</p>
+          </div>
+        </div>
+
+        <ul>
+          <li>
+            <a href="#"
+              ><i class="fa-regular fa-house" aria-hidden="true"></i>Home</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><i class="fa-solid fa-briefcase" aria-hidden="true"></i
+              >Services</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><i class="fa-regular fa-envelope" aria-hidden="true"></i>
+              Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="loginScreen">
+        <div class="login-card">
+          <h2>Enter Your Pin</h2>
+          <p>Please enter your 4 digits Atm Pin to continue</p>
+          <div class="pin-box">
+            <input
+              type="password"
+              inputmode="numeric"
+              pattern="[0-9]"
+              id="pin1"
+              required
+              maxlength="1"
+            />
+            <input
+              type="password"
+              inputmode="numeric"
+              pattern="[0-9]"
+              id="pin2"
+              required
+              maxlength="1"
+            />
+            <input
+              type="password"
+              inputmode="numeric"
+              pattern="[0-9]"
+              id="pin3"
+              required
+              maxlength="1"
+            />
+            <input
+              type="password"
+              inputmode="numeric"
+              pattern="[0-9]"
+              id="pin4"
+              required
+              maxlength="1"
+            />
+          </div>
+          <button class="login-btn">Login</button>
+          <div class="security-note">
+            <i class="fa-solid fa-shield" aria-hidden="true"></i>
+            <p>For your security, do not share your PIN with anyone</p>
+          </div>
+        </div>
+      </section>
+      <section id="dashboardScreen">
+        <header>
+          <h2>Dashboard</h2>
+          <div class="dashboardScreen-p-button">
+            <p>Welcome, <span class="user-name">Ali Raza</span></p>
+            <button class="log-out-btn">Logout</button>
+          </div>
+        </header>
+        <div class="dashboard-body">
+          <div class="operations-grid">
+            <button id="check-balance-btn">
+              <i class="fa-solid fa-wallet op-icon" aria-hidden="true"></i>
+              <span>Check Balance</span>
+              <p>View your current account balance</p>
+            </button>
+            <button id="withdraw-btn">
+              <i
+                class="fa-solid fa-money-bill-transfer op-icon"
+                aria-hidden="true"
+              ></i>
+              <span>Withdraw Money</span>
+              <p>Withdraw cash from your account</p>
+            </button>
+            <button id="deposit-btn">
+              <i
+                class="fa-solid op-icon fa-money-check-dollar"
+                aria-hidden="true"
+              ></i>
+              <span>Deposit Money</span>
+              <p>Deposit cash to your account</p>
+            </button>
+            <button id="statement-btn">
+              <i
+                class="fa-solid op-icon fa-file-invoice"
+                aria-hidden="true"
+              ></i>
+              <span>Account Statements</span>
+              <p>View your recent transactions</p>
+            </button>
+            <button id="change-pin-btn">
+              <i class="fa-solid op-icon fa-lock" aria-hidden="true"></i>
+              <span>Change Pin</span>
+              <p>Change your ATM PIN securely</p>
+            </button>
+            <button id="exit-btn">
+              <i
+                class="fa-solid op-icon fa-arrow-right-from-bracket"
+                aria-hidden="true"
+              ></i>
+              <span>Exit</span>
+              <p>Thank you for using our ATM</p>
+            </button>
+          </div>
+          <div class="account-summary">
+            <h3>Account Summary</h3>
+            <dl>
+              <dt>Current Balance</dt>
+              <dd id="balance-number">******</dd>
+              <dt>Account Holder</dt>
+              <dd>Ali Raza</dd>
+              <dt>Account No.</dt>
+              <dd>1234-7283-2318-E</dd>
+              <dt>Account Type</dt>
+              <dd>Savings Account</dd>
+              <dt>Last Login</dt>
+              <dd>25-05-2024 10:24 AM</dd>
+            </dl>
+          </div>
+        </div>
+        <div class="transactions-history">
+          <h3>Recent Transactions</h3>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date & Time</th>
+                  <th>Type</th>
+                  <th>Amount(Rs.)</th>
+                  <th>Balance(Rs.)</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="recent-transaction">
+                <tr>
+                  <td>25-05-2024 09:15 AM</td>
+                  <td>Withdraw</td>
+                  <td><span class="negative">-2,000.00</span></td>
+                  <td>48,000.00</td>
+                  <td><span class="status-success">Success</span></td>
+                </tr>
+                <tr>
+                  <td>24-05-2024 06:30 PM</td>
+                  <td>Deposit</td>
+                  <td><span class="positive">+5,000.00</span></td>
+                  <td>50,000.00</td>
+                  <td><span class="status-success">Success</span></td>
+                </tr>
+                <tr>
+                  <td>28-05-2024 06:30 PM</td>
+                  <td>Balance Check</td>
+                  <td>0.00</td>
+                  <td>20,000.00</td>
+                  <td><span class="status-success">Success</span></td>
+                </tr>
+                <tr>
+                  <td>24-05-2024 06:30 PM</td>
+                  <td>Withdraw</td>
+                  <td><span class="negative">-7,000.00</span></td>
+                  <td>24,000.00</td>
+                  <td><span class="status-success">Success</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <footer>
+          <div class="footer-content">
+            <div class="footer-group-1">
+              <i class="fa-solid fa-lock" aria-hidden="true"></i>
+              <p>Your security is our top priority</p>
+            </div>
+            <div class="footer-group-2">
+              &copy;2024 K-Digital Bank.All right reserved.
+            </div>
+            <div class="footer-group-3">
+              <ul>
+                <li>
+                  <a
+                    href="https://instagram.com/"
+                    aria-label="Instagram"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><i class="fa-brands fa-instagram" aria-hidden="true"></i
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="https://x.com/"
+                    aria-label="X"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><i class="fa-brands fa-twitter" aria-hidden="true"></i
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.facebook.com/"
+                    aria-label="Facebook"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><i class="fa-brands fa-facebook" aria-hidden="true"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </footer>
+      </section>
+    </main>
+    <script src="ATM.js"></script>
+  </body>
+</html>

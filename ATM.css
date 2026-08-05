@@ -1,0 +1,596 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Inter", system-ui, sans-serif;
+}
+.main-header {
+  background-color: #122347;
+  padding: 8px;
+  color: #f5f5f5;
+
+  nav {
+    max-width: 1200px;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+
+    li {
+      font-size: 18px;
+      font-weight: 500;
+    }
+    a {
+      text-decoration: none;
+      color: #f5f5f5;
+      position: relative;
+
+      .fa-envelope,
+      .fa-house,
+      .fa-briefcase {
+        margin-right: 5px;
+      }
+    }
+    a::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: #ffee03;
+      left: 0;
+      bottom: -24px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease-in-out;
+    }
+    a:hover {
+      color: #ffee03;
+    }
+    a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
+
+  .logo-hgroup {
+    display: flex;
+    font-weight: 300;
+    align-items: center;
+    h1 {
+      font-size: 25px;
+      font-weight: 400;
+    }
+    p {
+      font-size: 15px;
+    }
+    .logo {
+      font-size: 60px;
+    }
+  }
+}
+#loginScreen {
+  background-image: url(ATM.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  height: 90dvh;
+  color: white;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+
+  .login-card {
+    margin-right: 100px;
+    background-color: rgb(255, 255, 255);
+    color: #0e2a65;
+    padding: 20px;
+    line-height: 1.5;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    animation: cardDropIn 2s ease-out forwards;
+    input {
+      width: 50px;
+      height: 50px;
+      padding: 10px;
+      margin: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .login-btn {
+      width: 200px;
+      height: 40px;
+      background-color: #0e2a65;
+      color: white;
+      border: none;
+      margin-top: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+    .login-btn:hover {
+      background-color: #122347;
+      transform: scale(1.05);
+    }
+    .login-btn:active {
+      transform: scale(0.95);
+    }
+    p {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #0e2a65;
+    }
+    .security-note {
+      display: flex;
+      align-items: center;
+      justify-content: end;
+
+      .fa-shield {
+        margin-right: 5px;
+        font-size: 18px;
+        margin-top: 10px;
+      }
+    }
+  }
+  #pin1 {
+    animation: pinPop 0.5s ease-out 2.2s both;
+  }
+
+  #pin2 {
+    animation: pinPop 0.5s ease-out both;
+    animation-delay: 2.4s;
+  }
+  #pin3 {
+    animation: pinPop 0.5s ease-out both;
+    animation-delay: 2.6s;
+  }
+  #pin4 {
+    animation: pinPop 0.5s ease-out both;
+    animation-delay: 2.8s;
+  }
+}
+#dashboardScreen {
+  background-color: #f4f6fa;
+  display: none;
+  header {
+    border-top: 1px solid rgba(244, 243, 240, 0.084);
+    display: flex;
+    justify-content: space-between;
+    background-color: #122347;
+    color: white;
+    padding: 10px 20px;
+  }
+  h2 {
+    font-weight: 400;
+  }
+  .dashboardScreen-p-button {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 10px;
+
+    button {
+      background-color: #ff0000;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 10px;
+      margin-left: 10px;
+      transition: all 0.3s ease-in-out;
+    }
+    button:hover {
+      background-color: #cc0000;
+      transform: scale(1.05);
+    }
+    button:active {
+      transform: scale(0.95);
+    }
+  }
+
+  .dashboard-body {
+    display: flex;
+
+    padding: 20px;
+    gap: 20px;
+  }
+  .operations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+    flex-grow: 1;
+    padding: 20px;
+
+    span {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    button {
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      width: 250px;
+      height: 120px;
+      background-color: #f2f3f5;
+      color: #0e2a65;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      p {
+        font-size: 14px;
+        font-weight: 400;
+      }
+    }
+    button:hover {
+      background-color: #d3daef; /* soft light navy-tinted grey, barely darker than the default #f2f3f5 */
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.23);
+    }
+    button:active {
+      transform: scale(0.95);
+    }
+    .op-icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+    .fa-wallet {
+      color: green;
+    }
+    .fa-money-bill-transfer {
+      color: blue;
+    }
+    .fa-money-check-dollar {
+      color: purple;
+    }
+    .fa-file-invoice {
+      color: orange;
+    }
+    .fa-lock {
+      color: magenta;
+    }
+    .fa-arrow-right-from-bracket {
+      color: teal;
+    }
+  }
+  .account-summary {
+    background-color: #f8f9fb; /* very light, barely-there tint — similar family to your button's default #f2f3f5 */
+    color: #0a1d45; /* navy, matches your other card text */
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    flex-grow: 1; /* or keep fixed width, your call */
+
+    h3 {
+      font-weight: 400;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    dt {
+      font-size: 13px;
+      color: #6b7280; /* muted grey, secondary info */
+      margin-top: 10px;
+      display: flex;
+      padding: 1px 0;
+      justify-content: space-between;
+      border-bottom: 1px solid #e5e7eb; /* subtle divider line */
+    }
+    dd {
+      font-size: 16px;
+      font-weight: 600;
+      border-bottom: 1px solid #e5e7eb; /* subtle divider line */
+
+      color: #0e2a65; /* strong navy, primary info */
+    }
+  }
+  dl {
+    column-gap: 15px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+    row-gap: 12px;
+    align-items: baseline; /* so label and value text sit aligned on the same visual line, even if font sizes differ */
+  }
+  dt:first-child {
+    border: none;
+  }
+  dd:first-of-type {
+    grid-column: 1 / -1;
+    border: none;
+  }
+  dd:first-of-type {
+    font-size: 28px;
+    color: #16a34a;
+    font-weight: 700;
+    line-height: 0.9;
+    margin-top: -5px;
+    justify-self: end;
+  }
+
+  .transactions-history {
+    background-color: #f8f9fb;
+    color: #0a1d45;
+    padding: 20px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-top: 20px;
+
+    h3 {
+      background-color: #0a1d45;
+      color: white;
+      border-radius: 5px;
+      padding: 10px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .status-success {
+      font-size: 14px;
+      font-weight: 800;
+      color: #1fa907;
+      margin-bottom: 10px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 95%;
+      margin: auto;
+    }
+    td,
+    th {
+      padding: 5px;
+      width: 200px;
+      text-align: center;
+      border: 2px solid #e5e7eb;
+    }
+    .negative {
+      color: red;
+    }
+    .positive {
+      color: green;
+      font-weight: 400;
+    }
+    th {
+      background-color: #12234726;
+    }
+    tr:nth-child(even) {
+      background-color: #a3a6ad23;
+    }
+  }
+  footer {
+    padding: 6px 10px;
+    background-color: #122347;
+
+    .footer-content {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      color: white;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid rgba(137, 136, 143, 0.437);
+      padding: 8px 12px;
+
+      border-radius: 10px;
+    }
+
+    .footer-group-1 {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    li {
+      list-style: none;
+      color: #f5f5f5;
+    }
+    ul {
+      display: flex;
+      gap: 15px;
+    }
+    a {
+      font-size: 25px;
+      margin-right: 10px;
+    }
+    .footer-group-3 a {
+      display: inline-block;
+
+      transition: all 0.3s ease-in-out;
+    }
+    .footer-group-3 a:hover {
+      transform: scale(1.15);
+    }
+    .fa-facebook {
+      color: #1877f2;
+    }
+    .fa-twitter {
+      color: #1da1f2;
+    }
+    .fa-instagram {
+      color: #e1306c;
+    }
+  }
+}
+@keyframes cardDropIn {
+  0% {
+    transform: translateY(-150px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes pinPop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 768px) {
+  .main-header {
+    padding: 10px;
+  }
+
+  .main-header nav {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .main-header ul li {
+    font-size: 16px;
+  }
+
+  .main-header ul a::after {
+    display: none;
+  }
+
+  .main-header .logo-hgroup {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .main-header .logo-hgroup h1 {
+    font-size: 22px;
+  }
+
+  .main-header .logo-hgroup p {
+    font-size: 13px;
+  }
+
+  .main-header .logo-hgroup .logo {
+    font-size: 48px;
+  }
+
+  #loginScreen {
+    justify-content: center;
+    padding: 20px;
+    height: auto;
+    min-height: 100vh;
+    background-size: cover;
+  }
+
+  #loginScreen .login-card {
+    width: 100%;
+    margin-right: 0;
+    padding: 20px 15px;
+  }
+
+  #loginScreen .login-card input {
+    width: 45px;
+    height: 45px;
+    margin: 4px;
+  }
+
+  #loginScreen .login-card .login-btn {
+    width: 100%;
+  }
+
+  #dashboardScreen header {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  #dashboardScreen .dashboardScreen-p-button {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  #dashboardScreen .dashboard-body {
+    flex-direction: column;
+    padding: 12px;
+  }
+
+  #dashboardScreen .operations-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding: 0;
+    gap: 15px;
+  }
+
+  #dashboardScreen .operations-grid button {
+    width: 100%;
+    height: 110px;
+    font-size: 16px;
+  }
+
+  #dashboardScreen .operations-grid .op-icon {
+    font-size: 34px;
+  }
+
+  #dashboardScreen .account-summary {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  #dashboardScreen dl {
+    grid-template-columns: auto 1fr;
+  }
+
+  #dashboardScreen dd:first-of-type {
+    font-size: 24px;
+  }
+
+  #dashboardScreen .transactions-history {
+    padding: 15px;
+  }
+  .table-scroll {
+    overflow-x: auto;
+  }
+  #dashboardScreen .transactions-history table {
+    min-width: 650px;
+  }
+
+  #dashboardScreen footer .footer-content {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  #dashboardScreen .footer-group-1,
+  #dashboardScreen .footer-group-2,
+  #dashboardScreen .footer-group-3 {
+    width: 100%;
+    justify-content: center;
+  }
+
+  #dashboardScreen footer ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #dashboardScreen footer a {
+    font-size: 22px;
+  }
+}
